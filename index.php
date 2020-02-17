@@ -6,6 +6,10 @@
     <title>Upload zip file</title>
 </head>
 <body>
-    
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Select zipfile to upload:
+    <input type="file" name="zip_file" >
+    <input type="submit" value="Upload zipfile" name="upload">
+</form>
 </body>
 </html>
