@@ -14,18 +14,18 @@ class DMARC
     private $name ;
     private $zip_file_name;
     private $xml_file_name;
-    public $xml_object =array();
+   // private $xml_object =array();
+    private $xml_file;// $xml_file_name + $save_path
 
      //Methods
 
-    public function getxml()
+     function  __construct()
     {
-       $this->extracting();
+       $this->extractZipFile();
        $this->saveXmlFile(); 
-       $this->showRawXml();
     }
 
-    private function extracting()
+    private function extractZipFile()
     {
         $this->zip_file_name = $_FILES['zip_file']['name'];
 
@@ -69,20 +69,18 @@ class DMARC
         }
 
     }
-    public function showRawXml()
+
+    public function getXmlFile()
     {
      $xml_file=$this->save_path. $this->xml_file_name;
-     
-      $this->xml_object=simplexml_load_file($xml_file);
-      print_r($this->xml_object) ;
-     ?>
-     <html lang="en">
-        <body>
-        <a href="<?php echo $xml_file; ?>" target="_blank">Raw-XML</a>
-        </body>
-     </html>
-        <?php 
-   }
+     return $xml_file;
+    }
+
+    public function getXmlObject()
+    {
+      $xml_object=simplexml_load_file($this->getXmlFile());
+     return $xml_object;
+    }
 
 //class end
 }
@@ -93,14 +91,24 @@ if (isset($_POST["upload"])) {
   if ($_FILES['zip_file']['name'] != '') {
 
      $ex = new DMARC;
-     $ex->getxml();
+     $obj= $ex->getXmlObject();
+     $raw_xml= $ex->getXmlFile();
+     echo"print obj";
+     print_r($obj);
        
   } else {
     echo "No Selected file to upload";
     }
 }
+?>
 
 
+
+<html lang="en">
+<body>
+<a href="<?php echo $raw_xml ; ?>" target="_blank">Raw-XML</a>
+</body>
+</html>
 
 
 
