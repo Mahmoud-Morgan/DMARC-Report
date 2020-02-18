@@ -11,5 +11,11 @@
     <input type="file" name="zip_file" >
     <input type="submit" value="Upload zipfile" name="upload">
 </form>
+<!-- <?php
+include 'db_connection.php';
+$conn = OpenCon();
+echo "Connected Successfully";
+CloseCon($conn);
+?> -->
 </body>
 </html>

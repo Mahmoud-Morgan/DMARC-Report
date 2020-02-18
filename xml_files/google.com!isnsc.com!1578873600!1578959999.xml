@@ -4,10 +4,10 @@
     <org_name>google.com</org_name>
     <email>noreply-dmarc-support@google.com</email>
     <extra_contact_info>https://support.google.com/a/answer/2466580</extra_contact_info>
-    <report_id>5811639088619696638</report_id>
+    <report_id>8593548312074428965</report_id>
     <date_range>
-      <begin>1578355200</begin>
-      <end>1578441599</end>
+      <begin>1578873600</begin>
+      <end>1578959999</end>
     </date_range>
   </report_metadata>
   <policy_published>
@@ -21,7 +21,7 @@
   <record>
     <row>
       <source_ip>209.85.220.69</source_ip>
-      <count>3</count>
+      <count>6</count>
       <policy_evaluated>
         <disposition>none</disposition>
         <dkim>fail</dkim>
@@ -49,28 +49,8 @@
   </record>
   <record>
     <row>
-      <source_ip>3.130.60.38</source_ip>
-      <count>1</count>
-      <policy_evaluated>
-        <disposition>none</disposition>
-        <dkim>fail</dkim>
-        <spf>fail</spf>
-      </policy_evaluated>
-    </row>
-    <identifiers>
-      <header_from>91e.isnsc.com</header_from>
-    </identifiers>
-    <auth_results>
-      <spf>
-        <domain>xr2lb---xr2lb---us-west-2.compute.amazonaws.com</domain>
-        <result>none</result>
-      </spf>
-    </auth_results>
-  </record>
-  <record>
-    <row>
       <source_ip>138.201.116.81</source_ip>
-      <count>2</count>
+      <count>4</count>
       <policy_evaluated>
         <disposition>none</disposition>
         <dkim>pass</dkim>
