@@ -1,0 +1,55 @@
+#container{
+    width: 98%;
+    height: auto;
+    margin: auto;
+    border: 1px solid gray;
+    
+}
+#header{
+    height:100px;
+    background-color: #e5e4cc;
+    margin: 0;
+}
+#upper_buttons{
+    height:100px;
+}
+#raw_xml_button{
+    float:right;
+    width:150px;
+    
+}
+#update_zip_button{
+    float:left;
+    width:300px;
+    
+}
+.button1 {
+    background-color: #12cad6;
+    float: right;
+    border-radius: 4px;
+    padding: 10px 24px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 15px;
+}
+.button2 {
+    background-color: #52de97;
+    float: left;
+    border-radius: 4px;
+    padding: 10px 24px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin : 15px;
+}
+h3 {
+    vertical-align: middle;
+    color: #4d4646;
+}

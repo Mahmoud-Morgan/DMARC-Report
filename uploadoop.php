@@ -14,8 +14,7 @@ class DMARC
     private $name ;
     private $zip_file_name;
     private $xml_file_name;
-   // private $xml_object =array();
-    private $xml_file;// $xml_file_name + $save_path
+  
 
      //Methods
 
@@ -90,13 +89,10 @@ if (isset($_POST["upload"])) {
 
   if ($_FILES['zip_file']['name'] != '') {
 
-     $ex = new DMARC;
-     $obj= $ex->getXmlObject();
-     $raw_xml= $ex->getXmlFile();
-     echo"print obj";
-     print_r($obj);
-       
-  } else {
+     //$ex = new DMARC;
+    // $xml_obj= $ex->getXmlObject();
+     //$raw_xml= $ex->getXmlFile();     
+   } else {
     echo "No Selected file to upload";
     }
 }
@@ -109,6 +105,43 @@ if (isset($_POST["upload"])) {
 <a href="<?php echo $raw_xml ; ?>" target="_blank">Raw-XML</a>
 </body>
 </html>
+<?php
+echo "<br>";
+echo "<br>";
+//  echo "Email Provider: ".$xml_obj->report_metadata->org_name;
+//  echo "<br>";echo "<br>";
+//  echo "Domain: ".$xml_obj->policy_published->domain;
+//  echo "<br>";echo "<br>";
+//  echo "Report ID: " . $xml_obj->report_metadata->report_id;
+//  echo "<br>";echo "<br>";
+//  echo "IP Address 3: " . $xml_obj->record[2]->row->source_ip;
+?>
 
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dmarc Report</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+    <div id= "container" >
+        <div id="header" >
+            <h3>Dmarc Report Analyzer</h3>
+        </div>
+        <div id = "upper_buttons">
+            <div id="raw_xml_button">
+            <form method="get" action="<?php echo $raw_xml ; ?>" target="_blank">
+             <button type="submit" class="button1">Raw XML</button>
+            </form>
+            </div>
+            <div id="update_zip_button">
+            <form method="get" action="index.php" target="_blank">
+             <button type="submit" class="button2">Upload Zip File</button>
+            </form>
+            </div>
+        </div>
+        <div id = "report_info"></div>
+        <div id = "reprt_tabel"></div>
+    </div>
+</body>
+</html>
