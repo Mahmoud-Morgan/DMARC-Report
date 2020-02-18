@@ -14,6 +14,7 @@ class DMARC
     private $name ;
     private $zip_file_name;
     private $xml_file_name;
+    public $xml_object =array();
 
      //Methods
 
@@ -71,7 +72,9 @@ class DMARC
     public function showRawXml()
     {
      $xml_file=$this->save_path. $this->xml_file_name;
-     //header('location:'. $xml_file.''.$_GET['file']);
+     
+      $this->xml_object=simplexml_load_file($xml_file);
+      print_r($this->xml_object) ;
      ?>
      <html lang="en">
         <body>
@@ -80,6 +83,7 @@ class DMARC
      </html>
         <?php 
    }
+
 //class end
 }
 
@@ -90,8 +94,7 @@ if (isset($_POST["upload"])) {
 
      $ex = new DMARC;
      $ex->getxml();
-     //$ex->showRawXml();
-     
+       
   } else {
     echo "No Selected file to upload";
     }
@@ -99,6 +102,5 @@ if (isset($_POST["upload"])) {
 
 
 
-?>
 
 

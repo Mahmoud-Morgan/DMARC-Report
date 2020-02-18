@@ -95,3 +95,4 @@ if (isset($_POST["upload"])) {
         echo "No Selected file to upload";
     }
 }
+//header('location:'. $xml_file.''.$_GET['file']);
