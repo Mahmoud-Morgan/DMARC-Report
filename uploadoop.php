@@ -68,13 +68,18 @@ class DMARC
         }
 
     }
-    private function showRawXml()
+    public function showRawXml()
     {
-        
-      $xml_file=file_get_contents($this->save_path. $this->xml_file_name);
-        echo $xml_file;
-      
-    }
+     $xml_file=$this->save_path. $this->xml_file_name;
+     //header('location:'. $xml_file.''.$_GET['file']);
+     ?>
+     <html lang="en">
+        <body>
+        <a href="<?php echo $xml_file; ?>" target="_blank">Raw-XML</a>
+        </body>
+     </html>
+        <?php 
+   }
 //class end
 }
 
@@ -85,7 +90,15 @@ if (isset($_POST["upload"])) {
 
      $ex = new DMARC;
      $ex->getxml();
+     //$ex->showRawXml();
+     
   } else {
     echo "No Selected file to upload";
     }
 }
+
+
+
+?>
+
+
