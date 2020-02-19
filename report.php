@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="container" >
-        <div id="header1"  >
+        <div id="header"  >
             <h3 >Dmarc Report Analyzer</h3>
         </div>
 

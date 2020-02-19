@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="container" >
-        <div id="header1" >
+        <div id="header" >
             <h3>Dmarc Report Analyzer</h3>
         </div>
 
@@ -25,7 +25,13 @@
             </div>
         </div>
 
-        <div id = "report_info"></div>
+        <div id = "report_info_div">
+            <div class="report_info"> <b>Email Provider:</b> google.com </div>
+            <div class="report_info"> <b>Domain:</b> isnsc.com </div>
+            <div class="report_info"> <b>Report Date:</b> 2020-01-07T00:00:00.000Z </div>
+            <div class="report_info" > <b>Report ID:</b> 5811639088619696638 </div>
+
+        </div>
         <div id = "reprt_tabel"></div>
     </div>
 </body>
