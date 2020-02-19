@@ -67,10 +67,7 @@
 }
 #report_tabel{
     margin: 20px;
-    border: 2px solid rgb(36, 35, 35);
-}
-table tr:hover td{ 
-    background-color: #e9e6e6;
+    border: 1px solid rgb(94, 93, 93);
 }
 table, th{
     vertical-align: middle;
@@ -94,9 +91,6 @@ table, td{
 #IP_Address{
     text-align: left;
 }
-table tr{
-    height: auto;
-}
-table tr:hover{
+table tr:hover td{ 
     background-color: #e9e6e6;
 }

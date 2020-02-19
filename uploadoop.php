@@ -2,7 +2,7 @@
 <?php
 
 require 'xml_getter.php';
-
+require 'report_obj.php';
 echo "upload Script";
 echo "<br>";
 
@@ -12,8 +12,9 @@ if (isset($_POST["upload"])) {
 
   if ($_FILES['zip_file']['name'] != '') {
 
-     $ex = new DMARC;
-    $xml_obj= $ex->getXmlObject();
+     $ex = new XmlGetter;    
+     $report_object= new ReportObject($ex);
+     $xml_obj= $ex->getXmlObject();
      $raw_xml= $ex->getXmlFile();     
    } else {
     echo "No Selected file to upload";
@@ -63,7 +64,7 @@ if (isset($_POST["upload"])) {
                     <th colspan="6" width="25%"><b>DKIM</b></th>
                 </tr>
                 <tr>
-                    <!-- No. of IP Address = NO. of records = count($xml_obj-2) -->
+                    <!-- No. of IP Address = NO. of records = (count($xml_obj)-2) -->
                     <th colspan="3" ><?php echo (count($xml_obj) -2); ?></th> 
                     <th colspan="3" >6</th>
                     <th colspan="6" >33.33%</th>
@@ -92,10 +93,10 @@ if (isset($_POST["upload"])) {
                     <th colspan="1" >Pass</th>
 
                 </tr>
-
+                <?php foreach($xml_obj->record as $record) {?>
                 <tr>
-                    <td colspan="3" id="IP_Address">IP Address</td>
-                    <td colspan="3" >Email Volume</td>
+                    <td colspan="3" id="IP_Address"><?php echo $record->row->source_ip; ?></td><!-- IP Address -->
+                    <td colspan="3" ><?php echo $record->row->count; ?></td><!-- Email Volume -->
                     <td colspan="2" >Pass</td>
                     <td colspan="1" >Fail</td>
                     <td colspan="3" >Rate</td>
@@ -110,6 +111,7 @@ if (isset($_POST["upload"])) {
                     <td colspan="1" >Fail</td>
                     <td colspan="1" >Pass</td>
                 </tr>
+                <?php }?>
                 
             </table>
         </div>

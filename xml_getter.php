@@ -6,7 +6,7 @@ echo "xml_getter Script";
 echo "<br>";
 //submit button name
 
-class DMARC
+class XmlGetter
 {
 
     private $extract_path ='upload/';
