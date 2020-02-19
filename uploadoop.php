@@ -51,19 +51,20 @@ if (isset($_POST["upload"])) {
             <div class="report_info"> <b>Email Provider:</b> <?php echo $xml_obj->report_metadata->org_name?> </div>
             <div class="report_info"> <b>Domain:</b> <?php echo $xml_obj->policy_published->domain;?> </div>
             <div class="report_info"> <b>Report Date:</b> 2020-01-07T00:00:00.000Z </div>
-            <div class="report_info" > <b>Report ID:</b> 5811639088619696638 </div>
+            <div class="report_info" > <b>Report ID:</b> <?php echo $xml_obj->report_metadata->report_id?></div>
         </div>
 
         <div id = "report_tabel">
             <table width="100%">
                 <tr>
-                    <th colspan="6" width="25%">kk</th>
+                    <th colspan="6" width="25%"> </th>
                     <th colspan="6" width="25%"><b>DMARC Compliance</b></th>
                     <th colspan="6" width="25%"><b>SPF</b></th>
                     <th colspan="6" width="25%"><b>DKIM</b></th>
                 </tr>
                 <tr>
-                    <th colspan="3" >3</th>
+                    <!-- No. of IP Address = NO. of records = count($xml_obj-2) -->
+                    <th colspan="3" ><?php echo (count($xml_obj) -2); ?></th> 
                     <th colspan="3" >6</th>
                     <th colspan="6" >33.33%</th>
                     <th colspan="3" >Authentication</th>
@@ -90,6 +91,24 @@ if (isset($_POST["upload"])) {
                     <th colspan="1" >Fail</th>
                     <th colspan="1" >Pass</th>
 
+                </tr>
+
+                <tr>
+                    <td colspan="3" id="IP_Address">IP Address</td>
+                    <td colspan="3" >Email Volume</td>
+                    <td colspan="2" >Pass</td>
+                    <td colspan="1" >Fail</td>
+                    <td colspan="3" >Rate</td>
+                    <td colspan="2" >Pass</td>
+                    <td colspan="1" >Fail</td>
+                    <td colspan="1" >Pass</td>
+                    <td colspan="1" >Fail</td>
+                    <td colspan="1" >Pass</td>
+                    <td colspan="2" >Pass</td>
+                    <td colspan="1" >Fail</td>
+                    <td colspan="1" >Pass</td>
+                    <td colspan="1" >Fail</td>
+                    <td colspan="1" >Pass</td>
                 </tr>
                 
             </table>

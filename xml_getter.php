@@ -2,7 +2,7 @@
 
 require 'db_connection.php';
 
-echo "upload Script";
+echo "xml_getter Script";
 echo "<br>";
 //submit button name
 
