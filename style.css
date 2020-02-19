@@ -4,14 +4,15 @@
     width: 98%;
     height: auto;
     margin: auto;
-    border: 1px solid rgb(92, 86, 86);
+    border: 1px solid rgb(155, 154, 154);
+    border-radius: 6px;
     
 }
 #header{
     height:50px;
     background-color: #e9e9e9;
     padding: 10px;
-    border: 1px solid rgb(190, 184, 184);  
+    border-bottom:1px solid rgb(190, 184, 184);
 }
 #upper_buttons{
     height:70px;
@@ -63,4 +64,17 @@
     margin : 15px;
     margin-left: 70px;
     padding: 4px;
+}
+#report_tabel{
+    margin: 20px;
+    border: 2px solid rgb(36, 35, 35);
+}
+table, th{
+    vertical-align: middle;
+    align-content: center;
+    background-color: #e9e6e6;
+    border-right:1px solid rgb(90, 90, 90);
+    border-collapse: collapse;
+    padding: 4px;
+    text-decoration-color: rgb(65, 64, 64);
 }

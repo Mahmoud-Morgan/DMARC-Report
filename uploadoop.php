@@ -30,9 +30,48 @@
             <div class="report_info"> <b>Domain:</b> isnsc.com </div>
             <div class="report_info"> <b>Report Date:</b> 2020-01-07T00:00:00.000Z </div>
             <div class="report_info" > <b>Report ID:</b> 5811639088619696638 </div>
-
         </div>
-        <div id = "reprt_tabel"></div>
+
+        <div id = "report_tabel">
+            <table width="100%">
+                <tr>
+                    <th colspan="6" width="25%">kk</th>
+                    <th colspan="6" width="25%"><b>DMARC Compliance</b></th>
+                    <th colspan="6" width="25%"><b>SPF</b></th>
+                    <th colspan="6" width="25%"><b>DKIM</b></th>
+                </tr>
+                <tr>
+                    <th colspan="3" >3</th>
+                    <th colspan="3" >6</th>
+                    <th colspan="6" >33.33%</th>
+                    <th colspan="3" >Authentication</th>
+                    <th colspan="2" >Alignment</th>
+                    <th colspan="1" >Policy</th>
+                    <th colspan="3" >Authentication</th>
+                    <th colspan="2" >Alignment</th>
+                    <th colspan="1" >Policy</th>
+                </tr>
+                <tr>
+                    <th colspan="3" >IP Address</th>
+                    <th colspan="3" >Email Volume</th>
+                    <th colspan="2" >Pass</th>
+                    <th colspan="1" >Fail</th>
+                    <th colspan="3" >Rate</th>
+                    <th colspan="2" >Pass</th>
+                    <th colspan="1" >Fail</th>
+                    <th colspan="1" >Pass</th>
+                    <th colspan="1" >Fail</th>
+                    <th colspan="1" >Pass</th>
+                    <th colspan="2" >Pass</th>
+                    <th colspan="1" >Fail</th>
+                    <th colspan="1" >Pass</th>
+                    <th colspan="1" >Fail</th>
+                    <th colspan="1" >Pass</th>
+
+                </tr>
+                
+            </table>
+        </div>
     </div>
 </body>
 </html>
