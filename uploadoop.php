@@ -13,7 +13,10 @@ if (isset($_POST["upload"])) {
   if ($_FILES['zip_file']['name'] != '') {
 
      $ex = new XmlGetter;    
-     $report_object= new ReportObject($ex);
+     $report_class_object= new ReportObject($ex);
+     $report_object= $report_class_object->getReportObject();
+     echo "<br>";
+     print_r($report_object);
      $xml_obj= $ex->getXmlObject();
      $raw_xml= $ex->getXmlFile();     
    } else {

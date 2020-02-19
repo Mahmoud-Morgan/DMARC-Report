@@ -35,7 +35,10 @@ class ReportObject
             case "none":
                 return 0;
             break;
-            default: echo "error!!: this value not (pass/fail/none)";
+            case null:
+                return 0;
+            break;
+            default: echo "error!!: this value not (pass/fail/none)". $x;
         }
     }
 
@@ -43,7 +46,7 @@ class ReportObject
     {
         $this->report_info= array(
             "email_provider"=>$this->xml_obj->report_metadata->org_name ,
-            "domin" =>$this->$xml_obj->policy_published->domain ,
+            "domin" =>$this->xml_obj->policy_published->domain ,
             "report_id"=>$this->xml_obj->report_metadata->report_id
         );        
     }
@@ -62,15 +65,15 @@ class ReportObject
           $dmarc_pass=$dkim_policy_pass;
           $dmarc_fail=($dmarc_pass== 0 ? $this->email_volume: 0);
           $dmarc_rate=($dmarc_pass== 0 ? 0.00 : 100.00);
-          $spf_alig__pass=$spf_policy_pass;
-          $spf_alig__fail=($spf_alig__pass== 0 ? $this->email_volume: 0);
+          $spf_alig_pass=$spf_policy_pass;
+          $spf_alig_fail=($spf_alig_pass== 0 ? $this->email_volume: 0);
           $dkim_alig_pass=$dkim_policy_pass;
           $dkim_alig_fail=$dmarc_fail;
 
          
          $record_collector=array(
              "ip_address"=>$record->row->source_ip,
-             "email_volume"=>$email_volume,
+             "email_volume"=>$this->email_volume,
              "dmarc"=>array("pass"=>$dmarc_pass,"fail"=>$dmarc_fail,"rate"=>$dmarc_rate.'%'),
              "spf"=>array("auth"=>array("pass"=>$spf_auth_pass,"fail"=>$spf_auth_fail),
                           "alig"=>array("pass"=>$spf_alig_pass,"fail"=>$spf_alig_fail),
@@ -92,7 +95,7 @@ class ReportObject
     
     private function reportCounts()
     {
-        $no_ip_adresses= (count($xml_obj) -2);
+        $no_ip_adresses= (count($this->xml_obj) -2);
         $average_rate= (array_sum($this->rate_collector)/count($this->rate_collector));
 
         $this->report_counts=array("no_ip_adresses"=>$no_ip_adresses,
@@ -104,7 +107,7 @@ class ReportObject
     {
         array_push($this->report_object,$this->report_info,$this->report_records,$this->report_counts);
     }
-    
+
     public function getReportObject()
     {
         return $this->report_object;
