@@ -1,3 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dmarc Report</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+    <div id="container" >
+        <div id="header1" >
+            <h3>Dmarc Report Analyzer</h3>
+        </div>
+
+        <div id= "upper_buttons">
+            <div id="raw_xml_button">
+             <form method="get" action="<?php echo $raw_xml ; ?>" target="_blank">
+                <button type="submit" class="button1">Raw XML</button>
+             </form>
+            </div>
+
+            <div id="update_zip_button">
+             <form method="get" action="index.php" target="_blank">
+                <button type="submit" class="button2">Upload Zip File</button>
+             </form>
+            </div>
+        </div>
+
+        <div id = "report_info"></div>
+        <div id = "reprt_tabel"></div>
+    </div>
+</body>
+</html>
+
+
+
 <?php
 
 require 'db_connection.php';
@@ -100,11 +135,11 @@ if (isset($_POST["upload"])) {
 
 
 
-<html lang="en">
+<!-- <html lang="en">
 <body>
 <a href="<?php echo $raw_xml ; ?>" target="_blank">Raw-XML</a>
 </body>
-</html>
+</html> -->
 <?php
 echo "<br>";
 echo "<br>";
@@ -117,31 +152,4 @@ echo "<br>";
 //  echo "IP Address 3: " . $xml_obj->record[2]->row->source_ip;
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Dmarc Report</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<body>
-    <div id= "container" >
-        <div id="header" >
-            <h3>Dmarc Report Analyzer</h3>
-        </div>
-        <div id = "upper_buttons">
-            <div id="raw_xml_button">
-            <form method="get" action="<?php echo $raw_xml ; ?>" target="_blank">
-             <button type="submit" class="button1">Raw XML</button>
-            </form>
-            </div>
-            <div id="update_zip_button">
-            <form method="get" action="index.php" target="_blank">
-             <button type="submit" class="button2">Upload Zip File</button>
-            </form>
-            </div>
-        </div>
-        <div id = "report_info"></div>
-        <div id = "reprt_tabel"></div>
-    </div>
-</body>
-</html>
+

@@ -1,17 +1,22 @@
+
+
 #container{
     width: 98%;
     height: auto;
     margin: auto;
-    border: 1px solid gray;
+    border: 1px solid rgb(92, 86, 86);
     
 }
-#header{
-    height:100px;
-    background-color: #e5e4cc;
-    margin: 0;
+#header1{
+    height:50px;
+    background-color: #dfdfdb;
+    margin-top: 0px;
+    
+    padding: 10px;
+    
 }
 #upper_buttons{
-    height:100px;
+    height:70px;
 }
 #raw_xml_button{
     float:right;
@@ -48,8 +53,4 @@
     display: inline-block;
     font-size: 15px;
     margin : 15px;
-}
-h3 {
-    vertical-align: middle;
-    color: #4d4646;
 }
