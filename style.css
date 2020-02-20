@@ -53,6 +53,7 @@
     font-size: 15px;
     margin : 15px;
 }
+
 #report_info_div{
     height: 70px;
 }
@@ -93,4 +94,16 @@ table, td{
 }
 table tr:hover td{ 
     background-color: #e9e6e6;
+}
+#button3 {
+    background-color: #52de97;
+    border-radius: 4px;
+    padding: 10px 24px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin : 15px;
 }

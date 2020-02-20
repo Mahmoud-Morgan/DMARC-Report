@@ -31,7 +31,7 @@ class XmlGetter
         $this->name = implode(".", $sliced_array);
         $ext = end($array);
 
-        if ($ext == 'zip'||'xml') {
+        if (($ext == 'zip')||($ext =='xml')) {
             $location = $this->extract_path . $this->zip_file_name;
             $tmp_name = $_FILES['zip_file']['tmp_name'];
             if (move_uploaded_file($tmp_name, $location)) {
