@@ -17,28 +17,14 @@
             font-size: 15px;
             margin : 15px;
         }
-        .file-custom {
+        .span{
             color: #655c56;
             font-family:arial;
             font-size: 20px;
+            margin-left: 15px;
         }
-        input[type="file"] {
-             width: 0.1px;
-            height: 0.1px;
-            opacity: 0;
-            overflow: hidden;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .custom-file-upload {
-            border: 1px solid #ccc;
-            display: inline-block;
-            padding: 6px 12px;
-            cursor: pointer;
-        }
-
     </style>
+    
     <title>Upload zip file</title>
 </head>
 <body>
@@ -50,8 +36,7 @@
         <div id="">
             <form action="report_view.php" method="post" enctype="multipart/form-data">
             
-            <span class="file-custom">Select zip or xml file to upload:</span>
-            <label for="file-upload" class="custom-file-upload">  Custom Upload</label>
+            <span class="span">Select zip or xml file to upload:</span>
             <input type="file" class="" name="zip_file" >
             <input type="submit"  class="button3" value="Upload  file" name="upload">
             </form>
