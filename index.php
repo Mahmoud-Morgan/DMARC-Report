@@ -9,14 +9,8 @@
 <body>
 <form action="report_view.php" method="post" enctype="multipart/form-data">
     Select zipfile to upload:
-    <input type="file" name="zip_file" >
-    <input type="submit" value="Upload zipfile" name="upload">
+    <input type="file" class="" name="zip_file" >
+    <input type="submit"  class="" value="Upload zip or xml file" name="upload">
 </form>
-<!-- <?php
-require 'db_connection.php';
-$conn = OpenCon();
-echo "Connected Successfully";
-CloseCon($conn);
-?> -->
 </body>
 </html>

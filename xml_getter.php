@@ -29,20 +29,25 @@ class XmlGetter
         //to separate extension "." from the other dots
         $sliced_array = array_slice($array, 0, -1);
         $this->name = implode(".", $sliced_array);
-        //$ext = $array[sizeof($array)-1];  //index of last element
         $ext = end($array);
 
-        if ($ext == 'zip') {
+        if ($ext == 'zip'||'xml') {
             $location = $this->extract_path . $this->zip_file_name;
             $tmp_name = $_FILES['zip_file']['tmp_name'];
             if (move_uploaded_file($tmp_name, $location)) {
-                $zip = new ZipArchive;
-                if ($zip->open($location)) {
-                    $zip->extractTo($this->extract_path);
-                    $zip->close();
+                if ($ext == 'zip'){
+                    $zip = new ZipArchive;
+                    if ($zip->open($location)) {
+                        $zip->extractTo($this->extract_path);
+                        $zip->close();
+                        unlink($this->extract_path.$this->zip_file_name);
+                    }
                 }
             }
-        }
+        }else{  
+              $URL="index.php";
+              echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
+              }
      //end extracting function
     }
 
@@ -52,7 +57,7 @@ class XmlGetter
         // copy file from upload dir to xml_files dir and clear upload dir
         copy($this->extract_path . $this->xml_file_name, $this->save_path. $this->xml_file_name);
         unlink($this->extract_path. $this->xml_file_name);
-        unlink($this->extract_path.$this->zip_file_name);
+        
 
         //adding xml file name to DB
         $conn = OpenCon();

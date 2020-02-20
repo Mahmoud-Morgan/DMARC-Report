@@ -3,21 +3,26 @@
 
 require 'xml_getter.php';
 require 'report_obj.php';
-
+$URL="index.php";
 
 if (isset($_POST["upload"])) {
 
   if ($_FILES['zip_file']['name'] != '') {
 
+   $file_name = $_FILES['zip_file']['name'];
+    $array = explode(".", $file_name);
+    $ext = end($array);
+    if (($ext == "zip")||($ext == "xml")) {
      $ex = new XmlGetter;    
      $report_class_object= new ReportObject($ex);
      $report_array= $report_class_object->getReportObject();
-     $raw_xml= $ex->getXmlFile();    
-   } else {
-    echo "No Selected file to upload";
-    $URL="index.php";
+     $raw_xml= $ex->getXmlFile(); 
+    } else {
+        echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
+        }  
+   }  else { 
     echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
-    }
+    }  
 }
 ?>
 
@@ -42,7 +47,7 @@ if (isset($_POST["upload"])) {
 
             <div id="update_zip_button">
              <form method="get" action="index.php" target="_blank">
-                <button type="submit" class="button2">Upload Zip File</button>
+                <button type="submit" class="button2">Upload Zip or xml File</button>
              </form>
             </div>
         </div>
