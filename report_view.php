@@ -15,6 +15,8 @@ if (isset($_POST["upload"])) {
      $raw_xml= $ex->getXmlFile();    
    } else {
     echo "No Selected file to upload";
+    $URL="index.php";
+    echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
     }
 }
 ?>
@@ -119,24 +121,5 @@ if (isset($_POST["upload"])) {
 
 
 
-
-
-
-<!-- <html lang="en">
-<body>
-<a href="<?php //echo $raw_xml ; ?>" target="_blank">Raw-XML</a>
-</body>
-</html> -->
-<?php
-echo "<br>";
-echo "<br>";
-//  echo "Email Provider: ".$xml_obj->report_metadata->org_name;
-//  echo "<br>";echo "<br>";
-//  echo "Domain: ".$xml_obj->policy_published->domain;
-//  echo "<br>";echo "<br>";
-//  echo "Report ID: " . $xml_obj->report_metadata->report_id;
-//  echo "<br>";echo "<br>";
-//  echo "IP Address 3: " . $xml_obj->record[2]->row->source_ip;
-?>
 
 
