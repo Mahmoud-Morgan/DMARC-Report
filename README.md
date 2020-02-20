@@ -1,6 +1,10 @@
 # DMARC-Report
 generating DMARC report form xml file format to be readable 
 
+##### Deploy link
+ link : https://dmarc-report.herokuapp.com/
+
+
 ### Assumptions 
 - Report generated form xml fils 
 - can upload zip or xml file 
