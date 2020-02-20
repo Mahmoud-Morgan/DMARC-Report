@@ -3,9 +3,6 @@
 
 require 'xml_getter.php';
 require 'report_obj.php';
-echo "upload Script";
-echo "<br>";
-
 
 
 if (isset($_POST["upload"])) {
@@ -14,11 +11,8 @@ if (isset($_POST["upload"])) {
 
      $ex = new XmlGetter;    
      $report_class_object= new ReportObject($ex);
-     $report_object= $report_class_object->getReportObject();
-     echo "<br>";
-     print_r($report_object);
-     $xml_obj= $ex->getXmlObject();
-     $raw_xml= $ex->getXmlFile();     
+     $report_array= $report_class_object->getReportObject();
+     $raw_xml= $ex->getXmlFile();    
    } else {
     echo "No Selected file to upload";
     }
@@ -52,10 +46,10 @@ if (isset($_POST["upload"])) {
         </div>
 
         <div id = "report_info_div">
-            <div class="report_info"> <b>Email Provider:</b> <?php echo $xml_obj->report_metadata->org_name?> </div>
-            <div class="report_info"> <b>Domain:</b> <?php echo $xml_obj->policy_published->domain;?> </div>
-            <div class="report_info"> <b>Report Date:</b> 2020-01-07T00:00:00.000Z </div>
-            <div class="report_info" > <b>Report ID:</b> <?php echo $xml_obj->report_metadata->report_id?></div>
+            <div class="report_info"> <b>Email Provider:</b> <?php print_r($report_array[0]['email_provider']);?> </div>
+            <div class="report_info"> <b>Domain:</b> <?php print_r($report_array[0]['domain']);?> </div>
+            <div class="report_info"> <b>Report Date:</b> <?php print_r($report_array[0]['report_date']);?> </div>
+            <div class="report_info" > <b>Report ID:</b> <?php print_r($report_array[0]['report_id']);?></div>
         </div>
 
         <div id = "report_tabel">
@@ -68,9 +62,9 @@ if (isset($_POST["upload"])) {
                 </tr>
                 <tr>
                     <!-- No. of IP Address = NO. of records = (count($xml_obj)-2) -->
-                    <th colspan="3" ><?php echo (count($xml_obj) -2); ?></th> 
-                    <th colspan="3" >6</th>
-                    <th colspan="6" >33.33%</th>
+                    <th colspan="3" ><?php print_r($report_array[2]['no_ip_adresses']); ?></th> 
+                    <th colspan="3" ><?php print_r($report_array[2]['no_emails_volume']); ?></th>
+                    <th colspan="6" ><?php print_r(round($report_array[2]['average_rate'],2).'%'); ?></th>
                     <th colspan="3" >Authentication</th>
                     <th colspan="2" >Alignment</th>
                     <th colspan="1" >Policy</th>
@@ -96,23 +90,23 @@ if (isset($_POST["upload"])) {
                     <th colspan="1" >Pass</th>
 
                 </tr>
-                <?php foreach($xml_obj->record as $record) {?>
+                <?php foreach($report_array[1] as $record) {?>
                 <tr>
-                    <td colspan="3" id="IP_Address"><?php echo $record->row->source_ip; ?></td><!-- IP Address -->
-                    <td colspan="3" ><?php echo $record->row->count; ?></td><!-- Email Volume -->
-                    <td colspan="2" >Pass</td>
-                    <td colspan="1" >Fail</td>
-                    <td colspan="3" >Rate</td>
-                    <td colspan="2" >Pass</td>
-                    <td colspan="1" >Fail</td>
-                    <td colspan="1" >Pass</td>
-                    <td colspan="1" >Fail</td>
-                    <td colspan="1" >Pass</td>
-                    <td colspan="2" >Pass</td>
-                    <td colspan="1" >Fail</td>
-                    <td colspan="1" >Pass</td>
-                    <td colspan="1" >Fail</td>
-                    <td colspan="1" >Pass</td>
+                    <td colspan="3" id="IP_Address"><?php print_r($record['ip_address']); ?></td><!-- IP Address -->
+                    <td colspan="3" ><?php print_r($record['email_volume']); ?></td><!-- Email Volume -->
+                    <td colspan="2" ><?php print_r($record['dmarc']['pass']); ?></td>
+                    <td colspan="1" ><?php print_r($record['dmarc']['fail']); ?></td>
+                    <td colspan="3" ><?php print_r($record['dmarc']['rate']); ?></td>
+                    <td colspan="2" ><?php print_r($record['spf']['auth']['pass']); ?></td>
+                    <td colspan="1" ><?php print_r($record['spf']['auth']['fail']); ?></td>
+                    <td colspan="1" ><?php print_r($record['spf']['alig']['pass']); ?></td>
+                    <td colspan="1" ><?php print_r($record['spf']['alig']['fail']); ?></td>
+                    <td colspan="1" ><?php print_r($record['spf']['policy']['pass']);?></td>
+                    <td colspan="2" ><?php print_r($record['dkim']['auth']['pass']); ?></td>
+                    <td colspan="1" ><?php print_r($record['dkim']['auth']['fail']); ?></td>
+                    <td colspan="1" ><?php print_r($record['dkim']['alig']['pass']); ?></td>
+                    <td colspan="1" ><?php print_r($record['dkim']['alig']['fail']); ?></td>
+                    <td colspan="1" ><?php print_r($record['dkim']['policy']['pass']);?></td>
                 </tr>
                 <?php }?>
                 

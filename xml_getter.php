@@ -2,9 +2,6 @@
 
 require 'db_connection.php';
 
-echo "xml_getter Script";
-echo "<br>";
-//submit button name
 
 class XmlGetter
 {
@@ -62,7 +59,7 @@ class XmlGetter
         $sql = "INSERT INTO xml_files (xml_file_name)
          VALUES ('$this->xml_file_name')";
         if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully"; echo "<br>" ;
+           // echo "New record created successfully"; echo "<br>" ;
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -77,7 +74,7 @@ class XmlGetter
 
     public function getXmlObject()
     {
-      $xml_object=simplexml_load_file($this->getXmlFile());
+     $xml_object=simplexml_load_file($this->getXmlFile());
      return $xml_object;
     }
 

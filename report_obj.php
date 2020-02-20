@@ -45,16 +45,17 @@ class ReportObject
     private function reportInfo()
     {
         $this->report_info= array(
-            "email_provider"=>$this->xml_obj->report_metadata->org_name ,
-            "domin" =>$this->xml_obj->policy_published->domain ,
-            "report_id"=>$this->xml_obj->report_metadata->report_id
+            "email_provider"=>(string)$this->xml_obj->report_metadata->org_name ,
+            "domain" =>(string)$this->xml_obj->policy_published->domain ,
+            "report_date"=>date('d/m/Y H:i:s', (string)$this->xml_obj->report_metadata->date_range->end),
+            "report_id"=>(string)$this->xml_obj->report_metadata->report_id
         );        
     }
     
     private function reportRecords()
     {
         foreach($this->xml_obj->record as $record){
-         $this->email_volume=$record->row->count;
+         $this->email_volume=(string)$record->row->count;
          
           $spf_policy_pass= $this->checker($record->row->policy_evaluated->spf);
           $dkim_policy_pass= $this->checker($record->row->policy_evaluated->dkim);
@@ -72,7 +73,7 @@ class ReportObject
 
          
          $record_collector=array(
-             "ip_address"=>$record->row->source_ip,
+             "ip_address"=>(string)$record->row->source_ip,
              "email_volume"=>$this->email_volume,
              "dmarc"=>array("pass"=>$dmarc_pass,"fail"=>$dmarc_fail,"rate"=>$dmarc_rate.'%'),
              "spf"=>array("auth"=>array("pass"=>$spf_auth_pass,"fail"=>$spf_auth_fail),
@@ -106,7 +107,9 @@ class ReportObject
     private function assemblyReportObject()
     {
         array_push($this->report_object,$this->report_info,$this->report_records,$this->report_counts);
+        $this->report_object = json_decode(json_encode((array)$this->report_object), 1);
     }
+
 
     public function getReportObject()
     {
