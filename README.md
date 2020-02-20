@@ -1,14 +1,14 @@
 # DMARC-Report
-generating DMARC report form xml file format to be readable 
+generating DMARC report from xml file format to be readable 
 
 ##### Deploy link
  link : https://dmarc-report.herokuapp.com/
 
 
 ### Assumptions 
-- Report generated form xml fils 
+- Report generated from xml fils 
 - can upload zip or xml file 
-- zip file name must have the intenal xml file name
+- zip file name must have the internal xml file name
 
 ### About
 - index have upload form to upload and send file to report_view
