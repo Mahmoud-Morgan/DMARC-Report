@@ -15,5 +15,5 @@ generating DMARC report from xml file format to be readable
 - report_view validate the uploaded file 
 - then calling xml_getter to get xml_object and saveing xml file
 - sent xml object to report object to get report array
-- view report form
+- view reoprt array in report form
 
