@@ -1,5 +1,5 @@
 # DMARC-Report
-generating DMARC report from xml file format to be readable 
+generating DMARC report from xml file format to be readable, using PHP native.
 
 ##### Deploy link
  link : https://dmarc-report.herokuapp.com/
